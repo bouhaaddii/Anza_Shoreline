@@ -1,0 +1,5 @@
+model,epr_mean,ci_low,ci_high
+Classical (MNDWI),0.1852,-0.0214,0.4104
+U-Net,0.3172,0.1578,0.4813
+SegNet,0.2293,0.0849,0.3827
+FCN,0.0432,-0.1274,0.2243

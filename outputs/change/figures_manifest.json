@@ -1,0 +1,62 @@
+[
+  {
+    "figure": "Fig01_transect_framework_and_EPR_map",
+    "file": "Fig01_transect_framework_and_EPR_map.png",
+    "caption": "Geometric framework of the change analysis. (a) Baseline built by offsetting the smoothed time-mean shoreline (amber dashed) 200 m landward (black), 50-m-spaced shore-normal transects (grey; IDs south -> north) and the U-Net shorelines (teal). (b) Transects coloured by End Point Rate; rust = erosion, blue = accretion; black dashed = most recent shoreline (autumn 2025). UTM 29N coordinates."
+  },
+  {
+    "figure": "Fig02_spacetime_anomaly_heatmap",
+    "file": "Fig02_spacetime_anomaly_heatmap.png",
+    "caption": "Space-time diagram of the shoreline position anomaly (deviation from the per-transect 2018-2025 mean). (a) Classical MNDWI; (b) U-Net. Rust = landward of the mean (erosion), blue = seaward (accretion); transect 1 = southern (harbour-side) end. The U-Net field is markedly less noisy than the classical one."
+  },
+  {
+    "figure": "Fig03_rates_by_transect",
+    "file": "Fig03_rates_by_transect.png",
+    "caption": "Per-transect change metrics from the U-Net shorelines: (a) End Point Rate, (b) Net Shoreline Movement, (c) Linear Regression Rate. Rust bars = erosion, blue = accretion; dashed line = embayment mean."
+  },
+  {
+    "figure": "Fig04_rate_distributions_by_model",
+    "file": "Fig04_rate_distributions_by_model.png",
+    "caption": "Distribution of the per-transect (a) EPR and (b) LRR for the four extraction pipelines (violin: kernel density; inner box: interquartile range, white line = median). The classical pipeline shows the widest dispersion; the Kruskal-Wallis test assesses whether the four EPR distributions share the same median."
+  },
+  {
+    "figure": "Fig05_sediment_volume_budget",
+    "file": "Fig05_sediment_volume_budget.png",
+    "caption": "Sediment volume budget (active envelope 5 m, transect cell 50 m). (a) Per-transect volume change 2018-2025 (U-Net); (b) annual and cumulative embayment-integrated budget (U-Net); (c) erosion / accretion / net decomposition for the four pipelines."
+  },
+  {
+    "figure": "Fig06_seasonal_cycle",
+    "file": "Fig06_seasonal_cycle.png",
+    "caption": "Seasonality of the shoreline position (anomaly relative to each transect's 2018-2025 mean). (a) U-Net distribution by season; (b) seasonal means with 95% confidence intervals for the four pipelines."
+  },
+  {
+    "figure": "Fig07_model_intercomparison",
+    "file": "Fig07_model_intercomparison.png",
+    "caption": "Sensitivity of the change signal to the extraction pipeline. (a) Per-transect EPR profiles of the four pipelines on the common transect grid; (b) Pearson correlation matrix of the EPR profiles."
+  },
+  {
+    "figure": "Fig08_embayment_trend_analysis",
+    "file": "Fig08_embayment_trend_analysis.png",
+    "caption": "Embayment-mean shoreline position versus time for the four pipelines. Points: seasonal means +/- 95% CI across transects; line: least-squares fit with 95% confidence band; panel titles give the embayment-scale LRR and the Mann-Kendall test."
+  },
+  {
+    "figure": "Fig09_erosion_accretion_classification",
+    "file": "Fig09_erosion_accretion_classification.png",
+    "caption": "Erosion / stable / accretion classification (sign of the EPR). (a) Map of the U-Net classification on the common transect grid; (b) share of transects per class for the four pipelines."
+  },
+  {
+    "figure": "Fig10_EPR_vs_LRR_consistency",
+    "file": "Fig10_EPR_vs_LRR_consistency.png",
+    "caption": "Consistency between the two rate estimators at the transect scale. EPR (end-point) against LRR (least-squares) for the four pipelines; dashed line = 1:1. Points off the diagonal flag transects whose evolution is non-monotonic, where the regression rate is the more robust descriptor."
+  },
+  {
+    "figure": "Fig11_annual_EPR_heatmap",
+    "file": "Fig11_annual_EPR_heatmap.png",
+    "caption": "Inter-annual variability of the change rate: year-to-year EPR per transect for (a) the classical MNDWI and (b) the U-Net pipeline. Rust = erosional year, blue = accretional year. Alternating erosional (2020-2021, 2024-2025) and recovery (2019-2020, 2023-2024) years dominate the record."
+  },
+  {
+    "figure": "Fig12_rate_uncertainty",
+    "file": "Fig12_rate_uncertainty.png",
+    "caption": "Robustness of the embayment-mean rate. (a) Mean EPR per pipeline with the archived bootstrap 95% confidence intervals transect set): the classical and FCN intervals include zero, whereas U-Net and SegNet resolve a weakly positive (accretional) mean EPR. (b) Mean OLS regression rate versus the outlier-robust Theil-Sen estimator; the sign disagreement with the EPR reflects the non-monotonic character of the record."
+  }
+]

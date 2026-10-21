@@ -1,0 +1,57 @@
+[
+  {
+    "figure": "Fig07_classical_processing_steps",
+    "file": "Fig07_classical_processing_steps.png",
+    "caption": "Processing chain of the classical MNDWI shoreline extraction, illustrated on the winter 2024 scene: (a) MNDWI raster; (b) binary water mask after Gaussian smoothing and zero-thresholding; (c) connected-component cleaning; (d) marching-squares land-water contour after border-artefact removal; (e) final smoothed shoreline."
+  },
+  {
+    "figure": "Fig01_study_area_seasonal_data",
+    "file": "Fig01_study_area_seasonal_data.png",
+    "caption": "Seasonal Sentinel-2 true-colour composites (a) and MNDWI rasters (b) over the Anza embayment for 2024. Black contour: MNDWI = 0 (land-water interface used by the classical pipeline)."
+  },
+  {
+    "figure": "Fig02_pixel_level_metrics",
+    "file": "Fig02_pixel_level_metrics.png",
+    "caption": "Pixel-level test-set performance of the three CNNs against the threshold-derived reference labels. (a) Full-scale scores; (b) zoom on the 0.9965-1.0 range revealing the consistent ranking U-Net > SegNet > FCN. Note that these scores quantify agreement with the MNDWI reference, not independent ground truth."
+  },
+  {
+    "figure": "Fig03_coastline_stacks_by_method",
+    "file": "Fig03_coastline_stacks_by_method.png",
+    "caption": "Seasonal shorelines produced by each pipeline from 2018 to 2025, coloured by acquisition year. Local differences in shoreline position and shape are shown without smoothing. Coordinates in UTM zone 29N (EPSG:32629)."
+  },
+  {
+    "figure": "Fig04_qualitative_segmentation",
+    "file": "Fig04_qualitative_segmentation.png",
+    "caption": "MNDWI input scenes and corresponding shoreline vectors from the classical, U-Net, SegNet and FCN pipelines. The three dates show an early, middle and late example. Empty panels explicitly indicate that a pipeline produced no shoreline for that scene; irregular segments are shown without post hoc smoothing."
+  },
+  {
+    "figure": "Fig05_shoreline_length_analysis",
+    "file": "Fig05_shoreline_length_analysis.png",
+    "caption": "Reconstructed shoreline length. (a) Seasonal time series per pipeline (2018-2025); (b) length distributions. The classical pipeline is systematically ~1% shorter than the CNNs, reflecting its stronger simplification of the boundary."
+  },
+  {
+    "figure": "Fig06_position_agreement",
+    "file": "Fig06_position_agreement.png",
+    "caption": "Planimetric agreement between each CNN shoreline and the classical MNDWI shoreline of the same season (32 seasons). (a) Distribution of the season-mean absolute offset; (b) alongshore profile of the mean offset (shading: +/-1 sigma across seasons). Mean offsets are generally modest, but localized excursions exceed the 10-m pixel scale, especially for SegNet."
+  },
+  {
+    "figure": "Fig09_seasonal_agreement_heatmap",
+    "file": "Fig09_seasonal_agreement_heatmap.png",
+    "caption": "Season-by-season planimetric agreement between each CNN shoreline and the classical MNDWI shoreline (mean absolute offset, m). The alongshore mean offset and its spatial spread compare each CNN with the classical shoreline. Larger offsets and uncertainty bands show where the extracted boundaries diverge locally."
+  },
+  {
+    "figure": "Fig10_four_method_overlay",
+    "file": "Fig10_four_method_overlay.png",
+    "caption": "Shorelines extracted by the four pipelines for two contrasting scenes, overlaid on the corresponding MNDWI raster. The overlays show local agreement and disagreement along the harbour revetment and northern headland; all vector outputs are shown without smoothing."
+  },
+  {
+    "figure": "Fig11_model_architecture",
+    "file": "Fig11_model_architecture.png",
+    "caption": "Model architectures implemented in this study. U-Net, SegNet, and FCN receive a single-channel 128 × 128 MNDWI patch and produce a 128 × 128 water-probability map; their encoder and decoder structures differ as shown. A shared threshold and vectorisation chain converts each map into a shoreline."
+  },
+  {
+    "figure": "Fig12_experimental_design",
+    "file": "Fig12_experimental_design.png",
+    "caption": "Experimental and technical design. Thirty-two seasonal Sentinel-2 composites are processed by classical MNDWI thresholding and three CNNs; the classical masks provide weak-supervision labels, and all four outputs use the same shoreline-vectorisation and evaluation framework."
+  }
+]

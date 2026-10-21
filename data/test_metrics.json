@@ -1,0 +1,26 @@
+{
+  "unet": {
+    "iou": 0.9984667897224426,
+    "f1": 0.9992328037944103,
+    "accuracy": 0.9985586313100961,
+    "precision": 0.9991703857705667,
+    "recall": 0.9992952396184797,
+    "reference": "Ronneberger et al. (2015) - U-Net: Convolutional Networks for Biomedical Image Segmentation"
+  },
+  "segnet": {
+    "iou": 0.9977384209632874,
+    "f1": 0.9988679393317998,
+    "accuracy": 0.9978731595552884,
+    "precision": 0.9988155270903948,
+    "recall": 0.9989203670751444,
+    "reference": "Badrinarayanan et al. (2017) - SegNet: A Deep Convolutional Encoder-Decoder Architecture"
+  },
+  "fcn": {
+    "iou": 0.9970549941062927,
+    "f1": 0.9985253341719407,
+    "accuracy": 0.9972299429086539,
+    "precision": 0.9986351637802964,
+    "recall": 0.9984155387167863,
+    "reference": "Long et al. (2015) - Fully Convolutional Networks for Semantic Segmentation"
+  }
+}
