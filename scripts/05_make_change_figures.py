@@ -24,7 +24,7 @@ import matplotlib.dates as mdates
 from matplotlib.colors import TwoSlopeNorm
 from matplotlib.cm import ScalarMappable
 from matplotlib.ticker import MaxNLocator, FuncFormatter
-from scipy.stats import linregress, kendalltau, kruskal, t as t_dist
+from scipy.stats import linregress, kendalltau, t as t_dist
 from visual_style import (ACCRETION, CHANGE_CMAP, EROSION, MODEL_COLORS,
                           STABLE, STYLE)
 
@@ -245,9 +245,6 @@ def fig04_distributions(rates):
         d["model"] = MODEL_LABEL[m]
         frames.append(d)
     df = pd.concat(frames, ignore_index=True)
-    groups = [rates[m]["epr"].dropna().values for m in MODELS]
-    H, p_kw = kruskal(*groups)
-
     order = [MODEL_LABEL[m] for m in MODELS]
     pal = {MODEL_LABEL[m]: MODEL_COLOR[m] for m in MODELS}
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 4.2), constrained_layout=True)
@@ -267,7 +264,6 @@ def fig04_distributions(rates):
         ax.set_ylabel(f"{metric.upper()} (m yr$^{{-1}}$)")
         ax.tick_params(axis="x", rotation=15)
         panel_letter(ax, letter)
-    ax1.set_title(f"Kruskal-Wallis H = {H:.1f}, p = {p_kw:.1e}")
     for i, m in enumerate(MODELS):
         n = rates[m]["epr"].notna().sum()
         ax1.annotate(f"n = {n}", (i, ax1.get_ylim()[0]),
@@ -275,9 +271,9 @@ def fig04_distributions(rates):
     save(fig, "Fig04_rate_distributions_by_model",
          "Distribution of the per-transect (a) EPR and (b) LRR for the four "
          "extraction pipelines (violin: kernel density; inner box: "
-         "interquartile range, white line = median). The classical pipeline "
-         "shows the widest dispersion; the Kruskal-Wallis test assesses "
-         "whether the four EPR distributions share the same median.")
+         "interquartile range, white line = median). These paired, potentially "
+         "spatially autocorrelated transect values are presented descriptively; "
+         "no between-method significance test is reported.")
 
 
 def fig05_volume_budget(rates, ann_v):

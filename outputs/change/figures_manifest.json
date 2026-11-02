@@ -17,7 +17,7 @@
   {
     "figure": "Fig04_rate_distributions_by_model",
     "file": "Fig04_rate_distributions_by_model.png",
-    "caption": "Distribution of the per-transect (a) EPR and (b) LRR for the four extraction pipelines (violin: kernel density; inner box: interquartile range, white line = median). The classical pipeline shows the widest dispersion; the Kruskal-Wallis test assesses whether the four EPR distributions share the same median."
+    "caption": "Per-transect (a) EPR and (b) LRR distributions for the four methods. Violins show distributions; box plots show the median and interquartile range. Values are descriptive; no between-method significance test is reported because outputs are paired and transects may be spatially autocorrelated."
   },
   {
     "figure": "Fig05_sediment_volume_budget",

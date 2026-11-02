@@ -11,6 +11,7 @@ This English-language package contains the code, input data, saved outputs, and 
 - `scripts/03_make_extraction_figures.py` and `scripts/05_make_change_figures.py`: publication figures from the archived data; shared styling is in `scripts/visual_style.py`.
 - `scripts/06_make_architecture_figure.py`: code-derived U-Net, SegNet, and FCN architecture schematic used as Figure 3.
 - `scripts/07_make_workflow_figure.py`: experimental-design flowchart used as Figure 2.
+- `scripts/08_make_submission_rate_outputs.py`: builds descriptive rate summaries and the manuscript's EPR/LRR distribution figure from the already saved per-transect rate CSVs. It does not rerun shoreline extraction, CNN inference, or transect calculations.
 - `data/`: the study's 32 seasonal multispectral composites, matching MNDWI rasters, label masks, saved shoreline vectors, and pixel metrics.
 - `models/checkpoints/`: the saved U-Net, SegNet, and FCN checkpoints used by the inference script.
 - `outputs/extraction/tables/`: archived extraction metrics and geometry summaries.
@@ -31,6 +32,7 @@ Then run:
 
 ```powershell
 ./run_pipeline.ps1
+python scripts/08_make_submission_rate_outputs.py
 ```
 
 This default command regenerates the result figures from the archived vectors, metrics, rasters, and change-analysis tables. It does not rerun CNN inference, shoreline extraction, or coastal-change calculations. The methods schematics in Figures 2 and 3 are generated separately with scripts 07 and 06.
@@ -56,8 +58,10 @@ Extraction and change scripts write new outputs and may replace files with match
 
 ## Interpretation and data notes
 
-The CNN masks were trained using labels derived from the classical MNDWI pipeline. The archived pixel metrics therefore measure agreement with threshold-derived labels, not independent validation against field-survey shorelines. The train/validation/test split is random across patches from the 32 seasonal scenes, rather than held out by year.
+The CNN masks were trained using labels derived from the classical MNDWI pipeline. The archived pixel metrics therefore measure agreement with threshold-derived labels, not independent validation against field-survey shorelines. The 128 × 128 patches have a 64-pixel stride, so neighboring patches overlap; the random train/validation/test split is at patch level and is not held out by scene, year, or spatial block. Test-set scores may therefore be optimistic and must not be interpreted as independent shoreline accuracy.
+
+For the manuscript's change-rate comparison, the primary observations are the four saved `outputs/change/analysis/rates_<method>.csv` files. Each contains the same 40 transects and 32 seasonal shoreline observations per transect. `scripts/08_make_submission_rate_outputs.py` regenerates the descriptive summaries directly from these files. Erosion and accretion are the negative and positive EPR signs; the reported zero-rate share means exactly EPR = 0 and is not a tolerance-based stability class. Rate distributions are descriptive; no between-method significance test is reported because the methods are paired on the same transects and neighboring transects may be spatially dependent.
 
 The change analysis does not apply tidal or runup corrections. Rates describe shoreline-position changes in the supplied seasonal composites and may include water-level influence. Volume and mass estimates in the archived analysis are scenario calculations based on a 5 m active height, 50 m transect spacing, sediment density of 1,600 kg/m³, and porosity of 0.4; they are not direct seabed-volume measurements.
 
-Sentinel-2 data are from the Copernicus programme and were accessed through Google Earth Engine. Before submission, deposit the complete code-and-data package in a trusted repository that supports a persistent DOI and English metadata, then add its DOI/URL to the manuscript; alternatively, arrange a confidential reviewer-access link during peer review and provide the public record at acceptance.
+Sentinel-2 data are from the Copernicus programme and were accessed through Google Earth Engine. The code, inputs, saved outputs, and visualization scripts are publicly available at https://github.com/bouhaaddii/Anza_Shoreline. The repository currently has no DOI. The manuscript links to this public record; an archived release with a persistent DOI may be added if the authors choose to create one.
